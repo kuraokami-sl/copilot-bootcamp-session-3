@@ -36,3 +36,16 @@
 	- Criteria: Tasks are sorted by priority from `P1` to `P3` after overdue status.
 	- Criteria: Tasks are sorted by due date ascending after priority.
 	- Criteria: Tasks without due dates appear last.
+
+# Technical Requirements
+
+- Requirement: Implement MVP changes in the frontend without backend API changes.
+- Requirement: Persist task updates in local storage only.
+- Requirement: Represent `dueDate` as an optional ISO `YYYY-MM-DD` string.
+- Requirement: Treat missing or invalid `dueDate` values as no due date.
+- Requirement: Represent `priority` as one of `P1`, `P2`, or `P3`.
+- Requirement: Default missing priority values to `P3`.
+- Requirement: Preserve existing task completion behavior.
+- Requirement: Keep `All`, `Today`, and `Overdue` filter logic deterministic and testable.
+- Requirement: Add tests for due date handling, priority defaults, validation, and filters.
+- Requirement: Follow existing JavaScript and React coding conventions.
