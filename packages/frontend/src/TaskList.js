@@ -203,6 +203,24 @@ function TaskList({ onEdit }) {
                 gap: 1
               }}
             >
+              {task.priority && (() => {
+                const priorityColor = { P1: '#f44336', P2: '#ff9800', P3: '#9e9e9e' }[task.priority] || '#9e9e9e';
+                return (
+                  <Chip
+                    label={task.priority}
+                    size="small"
+                    data-testid="priority-badge"
+                    sx={{
+                      height: 20,
+                      fontSize: '0.7rem',
+                      fontWeight: 700,
+                      background: priorityColor,
+                      color: 'white',
+                      minWidth: 32,
+                    }}
+                  />
+                );
+              })()}
               {task.due_date && (
                 <Chip
                   icon={<EventIcon sx={{ fontSize: 14 }} />}
