@@ -156,24 +156,33 @@ function TaskForm({ onSave, initialTask }) {
             label="Priority"
             onChange={e => setPriority(e.target.value)}
             inputProps={{ 'data-testid': 'priority-select' }}
+            className="priority-option-selected"
             sx={{
               borderRadius: 2,
               '&:hover .MuiOutlinedInput-notchedOutline': { borderColor: '#1976d2' },
               '&.Mui-focused .MuiOutlinedInput-notchedOutline': { borderColor: '#1976d2' },
             }}
           >
-            <MenuItem value="P1">
-              <Box component="span" sx={{ display: 'inline-block', width: 10, height: 10, borderRadius: '50%', background: '#f44336', mr: 1 }} />
-              P1 – High
-            </MenuItem>
-            <MenuItem value="P2">
-              <Box component="span" sx={{ display: 'inline-block', width: 10, height: 10, borderRadius: '50%', background: '#ff9800', mr: 1 }} />
-              P2 – Medium
-            </MenuItem>
-            <MenuItem value="P3">
-              <Box component="span" sx={{ display: 'inline-block', width: 10, height: 10, borderRadius: '50%', background: '#9e9e9e', mr: 1 }} />
-              P3 – Low
-            </MenuItem>
+            {['P1', 'P2', 'P3'].map((p) => (
+              <MenuItem
+                key={p}
+                value={p}
+                className={priority === p ? 'priority-option-selected' : 'priority-option-unselected'}
+              >
+                <Box
+                  component="span"
+                  sx={{
+                    display: 'inline-block',
+                    width: 10,
+                    height: 10,
+                    borderRadius: '50%',
+                    background: p === 'P1' ? '#f44336' : p === 'P2' ? '#ff9800' : '#9e9e9e',
+                    mr: 1,
+                  }}
+                />
+                {p === 'P1' ? 'P1 – High' : p === 'P2' ? 'P2 – Medium' : 'P3 – Low'}
+              </MenuItem>
+            ))}
           </Select>
         </FormControl>
         {error && <Typography color="error" sx={{ fontWeight: 500, fontSize: '0.875rem' }}>{error}</Typography>}

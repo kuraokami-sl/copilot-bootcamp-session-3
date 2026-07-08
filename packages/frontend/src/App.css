@@ -76,6 +76,15 @@ li:last-child {
   border-bottom: none;
 }
 
+.priority-option-selected {
+  color: #07F2E6;
+  font-weight: 700;
+}
+
+.priority-option-unselected {
+  color: #7A7A7A;
+}
+
 .delete-btn {
   background-color: #f44336;
   color: white;
